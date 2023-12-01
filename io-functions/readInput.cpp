@@ -1,12 +1,16 @@
 #include<bits/stdc++.h>
 #include<string>
 #include "../wrapper-classes/InputBuffer.cpp"
+#include "../command-processor/statementProcess.cpp"
 
 using namespace std;
 
-// Input prompt
-void input_prompt(){ 
-    cout<<"lazydb > ";
+void statement_process(InputBuffer* input_buffer){
+    statementProcess(input_buffer);
+}
+
+void close_input_buffer(InputBuffer* input_buffer) {
+    free(input_buffer);
 }
 
 void read_input(InputBuffer* input_buffer){
@@ -35,8 +39,7 @@ void read_input(InputBuffer* input_buffer){
         input_buffer->buffer.pop_back();
         input_buffer->input_length--;
     }
-}
 
-void close_input_buffer(InputBuffer* input_buffer) {
-    free(input_buffer);
+    // Carry out the statement execution
+    statement_process(input_buffer); 
 }

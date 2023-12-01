@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #include<string>
-#include "io-functions/io.cpp"
+#include "io-functions/readInput.cpp"
+#include "io-functions/printFunctions.cpp"
 #include "wrapper-classes/InputBuffer.cpp"
 
 using namespace std;
