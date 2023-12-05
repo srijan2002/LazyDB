@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 #include<string>
-#include "../wrapper-classes/InputBuffer.cpp"
 #include "../command-processor/statementProcess.cpp"
 
 using namespace std;

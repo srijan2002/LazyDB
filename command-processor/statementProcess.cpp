@@ -1,11 +1,12 @@
 #include<bits/stdc++.h>
 #include "../wrapper-classes/InputBuffer.cpp"
-#include "states.cpp"
 #include "../wrapper-classes/Table.cpp"
 
 using namespace std;
 
-void print_row(Row* row){}
+void print_row(Row* row){
+    cout<<row->id<<", "<<row->username<<", "<<row->email<<endl;
+}
 
 PrepareResult prepare_statement(InputBuffer* input_buffer, Statement* statement){
    if(strncmp(input_buffer->buffer.c_str(),"insert",6)==0){
@@ -51,7 +52,7 @@ ExecuteResult execute_insert(Statement* statement, Table* table){
 
 ExecuteResult execute_select(Statement* statement, Table* table){
 
-    Row* row_to_select;
+    Row* row_to_select = new Row();
 
     for(uint32_t i = 0; i< table->num_rows;i++){
         deserialize_row(row_slot(table, i), row_to_select);
@@ -82,9 +83,16 @@ void statementProcess(InputBuffer* input_buffer, Table* table){
     switch (prepare_statement(input_buffer, &statement))
     {
     case PREPARE_SUCCESS:
-        execute_statement(&statement, table);
+        switch (execute_statement(&statement, table))
+        {
+        case EXECUTE_SUCCESS:
+            break;
+        
+        default:
+            cout << "Not Executed !" << endl;
+            break;
+        }
         break;
-
     case PREPARE_UNRECOGNIZED_STATEMENT:
         cout << "Unrecognized statement !" << endl;
         break;

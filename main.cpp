@@ -2,7 +2,6 @@
 #include<string>
 #include "io-functions/readInput.cpp"
 #include "io-functions/printFunctions.cpp"
-#include "wrapper-classes/InputBuffer.cpp"
 
 using namespace std;
 
