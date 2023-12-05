@@ -8,6 +8,10 @@ typedef enum{
 } PrepareResult;
 
 typedef enum{
+    EXECUTE_SUCCESS, EXECUTE_TABLE_FULL
+} ExecuteResult;
+
+typedef enum{
     SELECT, INSERT, UNDEFINED
 } StatementType;
 
