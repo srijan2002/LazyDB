@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 #define COLUMN_USERNAME_SIZE 32
 #define COLUMN_EMAIL_SIZE 255
 
@@ -18,8 +17,8 @@ typedef enum{
 // Hardcoded table of id, username & email
 typedef struct{
     uint32_t id;
-    char username[COLUMN_USERNAME_SIZE];
-    char email[COLUMN_EMAIL_SIZE];
+    char username[COLUMN_USERNAME_SIZE+1];
+    char email[COLUMN_EMAIL_SIZE+1];
 } Row;
 
 
